@@ -1,0 +1,58 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+
+interface Product {
+  id: number | string;
+  attributes: {
+    Title: string;
+    Price: number;
+    Image: {
+      data: {
+        attributes: {
+          url: string;
+        };
+      };
+    };
+  };
+}
+
+let products: Product[] = [];
+let error: string | null = null;
+
+try {
+  console.log('Fetching products...');
+  const response = await fetch(`${Astro.url.origin}/api/products`); // Use absolute URL
+  console.log('Response status:', response.status);
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  const data = await response.json();
+  console.log('Fetched data:', data);
+  products = data.data; // Ensure this matches the structure of your API response
+} catch (e) {
+  console.error('Error fetching products:', e);
+  error = e instanceof Error ? e.message : 'An unknown error occurred';
+}
+---
+
+<MainLayout title="Product Catalog - Star Shop">
+  <h1>Product Catalog</h1>
+  {error ? (
+    <p>Error loading products: {error}</p>
+  ) : (
+    <div class="product-grid">
+      {products.map((product) => (
+        <ProductCard product={product.attributes} id={product.id} />
+      ))}
+    </div>
+  )}
+</MainLayout>
+
+<style>
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+</style>

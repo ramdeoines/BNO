@@ -1,0 +1,108 @@
+---
+// Import global styles
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "A Progressive Web App built with Astro and Strapi" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- PWA meta tags -->
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icon-192x192.png" />
+    
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav>
+        <ul class="nav-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li>
+          <li><a href="/cart">Cart</a></li>
+          <!-- Add more links as needed -->
+        </ul>
+      </nav>
+    </header>
+
+    <div class="content">
+      <main>
+        <slot />
+      </main>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Star Shop. All rights reserved.</p>
+    </footer>
+
+    <!-- Service Worker registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+              console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+              console.error('Service Worker registration failed:', error);
+            });
+        });
+      }
+    </script>
+
+    <style>
+      .header {
+        position: fixed; /* Fix the header at the top */
+        top: 0; /* Align to the top */
+        left: 0; /* Align to the left */
+        width: 100%; /* Full width */
+        background-color: #3e0b5b; /* Background color */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        z-index: 1000; /* Ensure it stays above other content */
+        padding: 10px 20px; /* Padding for the header */
+      }
+
+      .nav-list {
+        list-style: none; /* Remove default list styling */
+        display: flex; /* Flexbox for horizontal layout */
+        gap: 20px; /* Space between links */
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+      }
+
+      .nav-list li {
+        display: inline; /* Inline list items */
+      }
+
+      .nav-list a {
+        text-decoration: none; /* Remove underline from links */
+        color: #f3e5e5; /* Link color */
+        font-weight: bold; /* Bold text */
+      }
+
+      .nav-list a:hover {
+        color: #4CAF50; /* Change color on hover */
+      }
+
+      .content {
+        margin-top: 60px; /* Adjust based on header height */
+      }
+    </style>
+  </body>
+</html>

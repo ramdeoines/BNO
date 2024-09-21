@@ -1,0 +1,19 @@
+Test Task
+
+Once completed with assignment please add your assignment links and resume by filling with the below attached Google form:
+If you are interested in this vacancy, you can complete a test task, which will be a big bonus when passing a technical interview.
+Description of the test task:
+Create a simple PWA that meets the following requirements:
+The application must be implemented as an MPA using the Astro.build framework https://astro.build/, deployment documentation: https://docs.astro.build/en/getting-started/, SSR rendering and API routes : https://docs.astro.build/en/guides/server-side-rendering/, (when creating a project, do not select any framework and indicate the use of TypeScript)
+Backend must be implemented using Strapi Admin Panel https://strapi.io/, documentation for quick start: https://docs.strapi.io/developer-docs/latest/getting-started/quick-start.html
+In the Astro project, create login and registration pages with the fields: 1. username, 2. email, 3. password, also a product catalog page and a user's shopping cart page
+In the Strapi Admin Panel, see the user authorization documentation https://docs.strapi.io/developer-docs/latest/plugins/users-permissions.html,
+In the Strapi Admin Panel, create a Collection Type “Product” with the fields ID (UID), Title (Text), Image (Media), Price (Digit). In the Collection Type "User" add the Cart field with the Products component and the relation on the Collection "Product".
+In the Astro project, create the necessary components for the product catalog page (product card, product info window, buttons for adding and removing a product from the cart).
+In the Astro project, register API Routes to receive data from the Strapi Admin Panel: register, login, get cart, add to cart, remove from cart, get products, get product by ID
+Install the websocket plugin https://market.strapi.io/plugins/strapi-plugin-io in the Strapi Admin Panel, and set the necessary functionality for the websocket to work (sending data to the client when the collection is changed in the admin panel)
+In the Astro project, write the logic for connecting to the socket and processing the events coming from it.
+Create a manifest and ServiceWorker for the application and test them in Chrome DevTools. In the ServiceWorker, implement the logic: we only cache GET requests, while each request is checked against the cache, if there are changes, then the cache is updated
+Please add your test task by filling the google form
+https://forms.gle/bzXdYw4q368G5HWW9
+Do not forget to add the contents of the .tmp folder with the database from the Strapi project to the GitHub repository, the .env file with the keys to access Strapi and leave the access to Strapi in READ.ME.

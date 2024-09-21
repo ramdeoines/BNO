@@ -1,0 +1,30 @@
+Fullstack Web Developer
+
+Job description
+
+The main task is to support the codebase of an Admin Panel + API for cross-platform web application (PWA) and internal use web platform. API and Admin Panel build like monorepo using the following technology stack:
+HTML 5, CSS 3, JavaScript, TypeScript
+Bootstrap 5, Metronic 8 (Custom Bootstrap Theme)
+Astro JS, JQuery, Node JS, WebSocket
+Strapi Admin Panel (Headless CMS) as a database
+
+At the moment, the PWA application is packaged into native applications for Android and IOS using PWABuilder and published on Google Play and the App Store. Internal use web platform packaged into Windows / MacOS desktop application and distributed inside the company. 
+
+In API Gateway we working with user login, registration, storing, editing and fetching data in database, files transfer, working with sending Emails and OTPs from Twilio and Sendgrid services APIs, working with scanning documents using Google Cloud OCR, and FCM push notification service (Firebase Cloud Messages).
+
+Main website is designed in Astro JS using SSR components connected to the Strapi Admin Panel as a CMS for website content and pages structure.
+
+Requirements:
+Basic knowledge of how to work with VPS Server on Ubuntu 22, GIT
+Knowledge of JavaScript and TypeScript at Middle level
+Knowledge of Bootstrap 5 and CSS 3 at Middle level
+Knowledge of Node JS at Middle level
+Experience with Metronic 8 and Astro JS and is highly welcome
+Experience with the Strapi Admin Panel is highly welcome
+
+Tasks:
+Writing high-quality, readable, commented, and most importantly working code in compliance with ESLint.
+Support existing modules in the API or/and in Admin Panel + website builder, react to company employees/website users' bug reports.
+
+Third-Party Requirements:
+Basic knowledge of English

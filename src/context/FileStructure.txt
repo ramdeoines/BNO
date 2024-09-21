@@ -1,0 +1,38 @@
+/project-root
+│
+├── /public                  # Static files such as icons, images
+│   └── manifest.json         # Web app manifest file
+│
+├── /src                      # Astro source folder
+│   ├── /components           # Reusable components (buttons, cards, forms, etc.)
+│   │   ├── ProductCard.astro  # Component for displaying each product in the catalog
+│   │   └── CartItem.astro     # Component for displaying each cart item
+│   │
+│   ├── /layouts              # Layouts for different pages
+│   │   └── MainLayout.astro   # Main layout wrapping around each page
+│   │
+│   ├── /pages                # Main pages of the site
+│   │   ├── /api              # API routes to interact with Strapi
+│   │   │   ├── login.ts      # API route to log in users
+│   │   │   ├── register.ts   # API route to register users
+│   │   │   ├── products.ts   # API route to fetch all products
+│   │   │   ├── cart.ts       # API route to fetch and manipulate the shopping cart
+│   │   │   ├── cart/add.ts   # API route to add products to the cart
+│   │   │   └── cart/remove.ts# API route to remove products from the cart
+│   │   ├── index.astro       # Homepage or catalog page (listing all products)
+│   │   ├── login.astro       # Login page
+│   │   ├── register.astro    # Registration page
+│   │   ├── cart.astro        # Shopping cart page
+│   │   └── product/[id].astro# Dynamic route for individual product details
+│   │
+│   ├── /services             # Services for interacting with APIs and WebSockets
+│   │   ├── api.ts            # Helper functions to call the Strapi API
+│   │   └── websocket.ts      # Helper functions for WebSocket connections
+│   │
+│   └── /styles               # CSS or SCSS files for styling
+│       └── global.css        # Global styles for the entire application
+│
+├── env.d.ts                  # Environment variables for API keys, URLs, etc.
+├── astro.config.mjs          # Astro configuration file
+├── package.json              # Dependencies and scripts
+└── service-worker.js         # Service Worker for caching and offline support

@@ -1,0 +1,27 @@
+How to Organize Pages and API Routes
+
+Login Page (login.astro):
+- Create a login form.
+- On form submission, make a POST request to /api/login.
+
+Registration Page (register.astro):
+- Similar to the login page but with additional fields (username, email, password).
+- POST the form data to /api/register.
+
+Product Catalog (index.astro):
+- Fetch product data from the API (/api/products) and display each product using the ProductCard component.
+
+Shopping Cart (cart.astro):
+- Fetch the current user's cart from /api/cart and display the cart items using the CartItem component.
+- Allow users to add or remove items using API routes like /api/cart/add and /api/cart/remove.
+
+Product Detail Page (product/[id].astro):
+- Use a dynamic route to fetch a single product by its ID from Strapi (/api/products/:id) and display the full product information.
+
+// Checkout Page (checkout.astro):
+// - Fetch the current user's cart from /api/cart.
+// - Calculate the total price and display it.
+// - Allow users to complete the purchase using the API route /api/checkout.
+
+// Order Confirmation (order-confirmation.astro):
+// - Display the order details and confirmation number.

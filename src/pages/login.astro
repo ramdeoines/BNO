@@ -1,0 +1,96 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Login - Star Shop">
+  <h1>Login</h1>
+  <form id="loginForm" class="form-container">
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit">Login</button>
+  </form>
+  <p id="message"></p>
+</MainLayout>
+
+<style>
+  .form-container {
+    background-color:   #6702c6; /* Soft background color */
+    border-radius: 10px; /* Rounded borders */
+    padding: 20px; /* Padding around the form */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    max-width: 500px; /* Max width for the form */
+    margin: auto; /* Center the form */
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Arial', sans-serif; /* Change to your desired font */
+    font-size: 16px; /* Adjust the font size */
+    font-weight: bold; /* Make the font bold */
+    color: #000000; /* Change the text color if needed */
+  }
+
+  input {
+
+    border: 1px solid #ffffff; /* Light border */
+    border-radius: 5px; /* Rounded input borders */
+    padding: 10px; /* Padding inside inputs */
+    width: 95%; /* Width */
+    margin-bottom: 15px; /* Space between inputs */
+  }
+
+  button {
+
+    background-color: #4CAF50; /* Soft green color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded button borders */
+    padding: 10px; /* Padding inside button */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 100%; /* Full width */
+    font-weight: bold; /* Bold text */
+  }
+
+  button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+
+  h1 {
+    text-align: center; /* Center the heading */
+    color: #333; /* Dark text color */
+  }
+
+  #message {
+    text-align: center; /* Center the message */
+    color: red; /* Error message color */
+  }
+</style>
+
+<script>
+  const loginForm = document.getElementById('loginForm') as HTMLFormElement;
+  if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target as HTMLFormElement);
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        body: JSON.stringify(Object.fromEntries(formData)),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      if (response.ok) {
+        window.location.href = '/';
+      } else {
+        alert('Login failed. Please try again.');
+      }
+    });
+  }
+</script>
